@@ -1,5 +1,5 @@
 /*
-	Copyright © 2009-2014 MCSharp team (Modified for use with MCZall/MCLawl/MCForge/MCForge-Redux)
+	Copyright ï¿½ 2009-2014 MCSharp team (Modified for use with MCZall/MCLawl/MCForge/MCForge-Redux)
 	
 	Dual-licensed under the	Educational Community License, Version 2.0 and
 	the GNU General Public License, Version 3 (the "Licenses"); you may
@@ -40,6 +40,11 @@ namespace MCForge.Commands
                     if (p.level.permissionvisit > p.group.Permission)
                     {
                         Player.SendMessage(p, "You cannot change the pervisit of a level with a pervisit higher than your rank.");
+                        return;
+                    }
+                    else if (Perm > p.group.Permission)
+                    {
+                        Player.SendMessage(p, "You cannot set the visit permission higher than your own.");
                         return;
                     }
                     p.level.permissionvisit = Perm;
